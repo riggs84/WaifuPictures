@@ -1,26 +1,37 @@
 import React from 'react';
 
-import WaifuList from './src/waifuList';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import WaifuPicture from './src/waifuPicture';
-import HeaderMenu from './src/waifuPicture/headerMenu';
+import WaifuTabs from './src/waifuTabs';
 
-const Stack = createNativeStackNavigator();
+const Tabs = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Home'}>
-        <Stack.Screen name={'Home'} component={WaifuList} />
-        <Stack.Screen
-          name={'Waifu'}
-          component={WaifuPicture}
-          options={({route}) => ({
-            headerRight: () => <HeaderMenu router={route} />,
-          })}
-        />
-      </Stack.Navigator>
+      <Tabs.Navigator
+        screenOptions={{
+          tabBarShowLabel: true,
+          tabBarStyle: [
+            {
+              backgroundColor: 'white',
+              borderColor: 'grey',
+              position: 'absolute',
+              bottom: 15,
+              marginHorizontal: 20,
+              height: 60,
+              borderRadius: 15,
+              shadowColor: '#000',
+              shadowOpacity: 0.06,
+              shadowOffset: {
+                width: 10,
+                height: 10,
+              },
+            },
+          ],
+        }}>
+        <Tabs.Screen name={'Home'} component={WaifuTabs} />
+      </Tabs.Navigator>
     </NavigationContainer>
   );
 };

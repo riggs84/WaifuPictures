@@ -4,13 +4,13 @@ import {FlatList, Image, StyleSheet} from 'react-native';
 import axios from 'axios';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
-const WaifuList = ({navigation}) => {
+const WaifuList = ({navigation, category}) => {
   const [pictures, setData] = useState([]);
 
   const fetchWaifu = async () => {
     try {
       const response = await axios.post(
-        'https://api.waifu.pics/many/sfw/waifu',
+        `https://api.waifu.pics/many/sfw/${category}`,
         {exclude: pictures},
       );
 
