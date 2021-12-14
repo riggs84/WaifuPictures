@@ -31,6 +31,7 @@ const App = () => {
           ],
         }}>
         <Tabs.Screen name={'Home'} component={WaifuTabs} />
+        <Tabs.Screen name={'About'} component={WaifuTabs} />
       </Tabs.Navigator>
     </NavigationContainer>
   );
