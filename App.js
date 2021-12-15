@@ -2,7 +2,9 @@ import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import WaifuTabs from './src/waifuTabs';
+import About from './src/about';
 
 const Tabs = createBottomTabNavigator();
 
@@ -11,7 +13,8 @@ const App = () => {
     <NavigationContainer>
       <Tabs.Navigator
         screenOptions={{
-          tabBarShowLabel: true,
+          tabBarActiveTintColor: 'maroon',
+          tabBarShowLabel: false,
           tabBarStyle: [
             {
               backgroundColor: 'white',
@@ -29,9 +32,26 @@ const App = () => {
               },
             },
           ],
-        }}>
-        <Tabs.Screen name={'Home'} component={WaifuTabs} />
-        <Tabs.Screen name={'About'} component={WaifuTabs} />
+        }}
+        initialRouteName="Home">
+        <Tabs.Screen
+          name={'Home'}
+          component={WaifuTabs}
+          options={{
+            tabBarIcon: ({color}) => (
+              <Icon name={'home'} size={30} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name={'About'}
+          component={About}
+          options={{
+            tabBarIcon: ({color}) => (
+              <Icon name={'info'} size={30} color={color} />
+            ),
+          }}
+        />
       </Tabs.Navigator>
     </NavigationContainer>
   );
