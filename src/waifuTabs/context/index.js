@@ -1,22 +1,28 @@
 import React, {useContext, useState} from 'react';
 
 const TabContextData = React.createContext();
-const TabContextSetData = React.createContext();
 
 export const useTabsContext = () => {
-  const data = useContext(TabContextData);
-  const setData = useContext(TabContextSetData);
-  return {data, setData};
+  return useContext(TabContextData);
 };
 
 export const TabsContext = ({children}) => {
   const [data, setData] = useState({});
 
+  const add = (category, files) => {
+    if (!data[category]) {
+      setData((data[category] = files));
+      console.log('azaza', data);
+    }
+    // else {
+    //   setData(data[category].concat(files));
+    //   console.log('azaza1', data);
+    // }
+  };
+
   return (
-    <TabContextData.Provider value={data}>
-      <TabContextSetData.Provider value={setData}>
-        {children}
-      </TabContextSetData.Provider>
+    <TabContextData.Provider value={{data, add}}>
+      {children}
     </TabContextData.Provider>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import OptionsMenu from 'react-native-option-menu';
 import ManageWallpaper, {TYPE} from 'react-native-manage-wallpaper';
-import MoreIcon from '../../sources/moreIcon.png';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HeaderMenu = ({router}) => {
   const setWallpaper = type => {
@@ -10,7 +10,7 @@ const HeaderMenu = ({router}) => {
 
   return (
     <OptionsMenu
-      button={MoreIcon}
+      button={<Icon name={'ellipsis-v'} />}
       buttonStyle={{width: 32, height: 20, margin: 7.5, resizeMode: 'contain'}}
       destructiveIndex={1}
       options={['Save as Home', 'Save as Lock', 'Save as Home and Lock']}
