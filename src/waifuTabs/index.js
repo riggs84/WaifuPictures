@@ -1,6 +1,5 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {TabsContext} from './context';
 import WaifuListWrapper from '../waifuListWrapper';
 import {bully, cuddle, megumin, neko, shinobu, waifu} from '../constants';
 
@@ -8,7 +7,6 @@ const Tabs = createMaterialTopTabNavigator();
 
 const WaifuTabs = () => {
   return (
-    <TabsContext>
       <Tabs.Navigator
         screenOptions={{
           tabBarAllowFontScaling: true,
@@ -39,7 +37,6 @@ const WaifuTabs = () => {
           children={() => <WaifuListWrapper category={cuddle} />}
         />
       </Tabs.Navigator>
-    </TabsContext>
   );
 };
 
