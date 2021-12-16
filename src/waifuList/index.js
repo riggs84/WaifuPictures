@@ -5,10 +5,12 @@ import axios from 'axios';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {useSelector, useDispatch} from 'react-redux';
 import {setPicture} from '../redux/actions';
+import {useNavigation} from '@react-navigation/native';
 
-const WaifuList = ({navigation, category}) => {
+const WaifuList = ({category}) => {
   const pictures = useSelector(state => state.reducer[category]);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const fetchWaifu = async () => {
     try {
@@ -31,7 +33,8 @@ const WaifuList = ({navigation, category}) => {
 
   const renderItem = ({item, index}) => {
     return (
-      <Pressable onPress={() => navigation.navigate('Waifu', {uri: item})}>
+      <Pressable
+        onPress={() => navigation.navigate('WaifuPicture', {uri: item})}>
         <Image
           source={{uri: item}}
           key={index}

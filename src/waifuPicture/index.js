@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {Image, StyleSheet} from 'react-native';
+import HeaderMenu from './headerMenu';
 
-const WaifuPicture = ({route}) => {
+const WaifuPicture = ({route, navigation}) => {
   const {uri} = route.params;
 
-  return <Image source={{uri}} style={styles.backgroundImage} />;
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <HeaderMenu uri={uri} />,
+    });
+  }, [navigation, uri]);
+
+  return (
+    <Image
+      source={{uri}}
+      style={styles.backgroundImage}
+      resizeMode={'contain'}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
