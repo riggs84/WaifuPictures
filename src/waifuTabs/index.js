@@ -1,7 +1,8 @@
 import React from 'react';
-import WaifuList from '../waifuList';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {TabsContext} from './context';
+import WaifuListWrapper from '../waifuListWrapper';
+import {bully, cuddle, megumin, neko, shinobu, waifu} from '../constants';
 
 const Tabs = createMaterialTopTabNavigator();
 
@@ -15,27 +16,27 @@ const WaifuTabs = () => {
         }}>
         <Tabs.Screen
           name={'Waifu'}
-          children={() => <WaifuList category={'waifu'} />}
+          children={() => <WaifuListWrapper category={waifu} />}
         />
         <Tabs.Screen
           name={'Neko'}
-          children={() => <WaifuList category={'neko'} />}
+          children={() => <WaifuListWrapper category={neko} />}
         />
         <Tabs.Screen
           name={'Shinobu'}
-          children={() => <WaifuList category={'shinobu'} />}
+          children={() => <WaifuListWrapper category={shinobu} />}
         />
         <Tabs.Screen
           name={'Megumin'}
-          children={() => <WaifuList category={'megumin'} />}
+          children={() => <WaifuListWrapper category={megumin} />}
         />
         <Tabs.Screen
           name={'Bully'}
-          children={() => <WaifuList category={'bully'} />}
+          children={() => <WaifuListWrapper category={bully} />}
         />
         <Tabs.Screen
           name={'Cuddle'}
-          children={() => <WaifuList category={'cuddle'} />}
+          children={() => <WaifuListWrapper category={cuddle} />}
         />
       </Tabs.Navigator>
     </TabsContext>
