@@ -7,36 +7,36 @@ const Tabs = createMaterialTopTabNavigator();
 
 const WaifuTabs = () => {
   return (
-      <Tabs.Navigator
-        screenOptions={{
-          tabBarAllowFontScaling: true,
-          tabBarScrollEnabled: true,
-        }}>
-        <Tabs.Screen
-          name={'Waifu'}
-          children={() => <WaifuListWrapper category={waifu} />}
-        />
-        <Tabs.Screen
-          name={'Neko'}
-          children={() => <WaifuListWrapper category={neko} />}
-        />
-        <Tabs.Screen
-          name={'Shinobu'}
-          children={() => <WaifuListWrapper category={shinobu} />}
-        />
-        <Tabs.Screen
-          name={'Megumin'}
-          children={() => <WaifuListWrapper category={megumin} />}
-        />
-        <Tabs.Screen
-          name={'Bully'}
-          children={() => <WaifuListWrapper category={bully} />}
-        />
-        <Tabs.Screen
-          name={'Cuddle'}
-          children={() => <WaifuListWrapper category={cuddle} />}
-        />
-      </Tabs.Navigator>
+    <Tabs.Navigator
+      screenOptions={{
+        tabBarAllowFontScaling: true,
+        tabBarScrollEnabled: true,
+      }}>
+      <Tabs.Screen
+        name={'Waifu'}
+        children={() => <WaifuListWrapper category={waifu} />}
+      />
+      <Tabs.Screen
+        name={'Neko'}
+        children={() => <WaifuListWrapper category={neko} />}
+      />
+      <Tabs.Screen
+        name={'Shinobu'}
+        children={() => <WaifuListWrapper category={shinobu} />}
+      />
+      <Tabs.Screen
+        name={'Megumin'}
+        children={() => <WaifuListWrapper category={megumin} />}
+      />
+      <Tabs.Screen
+        name={'Bully'}
+        children={() => <WaifuListWrapper category={bully} />}
+      />
+      <Tabs.Screen
+        name={'Cuddle'}
+        children={() => <WaifuListWrapper category={cuddle} />}
+      />
+    </Tabs.Navigator>
   );
 };
 
