@@ -12,7 +12,6 @@ export const TabsContext = ({children}) => {
   const add = (category, files) => {
     if (!data[category]) {
       setData((data[category] = files));
-      console.log('azaza', data);
     }
     // else {
     //   setData(data[category].concat(files));

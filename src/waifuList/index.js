@@ -1,32 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Image, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {FlatList, Image, StyleSheet} from 'react-native';
 import axios from 'axios';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-import {useTabsContext} from '../waifuTabs/context';
+import {useSelector, useDispatch} from 'react-redux';
+import {setPicture} from '../redux/actions';
 
 const WaifuList = ({navigation, category}) => {
-  const {data, add} = useTabsContext();
-  const [loading, setLoading] = useState(true);
+  const pictures = useSelector(state => state.reducer[category]);
+  const dispatch = useDispatch();
 
   const fetchWaifu = async () => {
-    setLoading(true);
     try {
       const response = await axios.post(
         `https://api.waifu.pics/many/sfw/${category}`,
-        {exclude: data[category]},
+        {exclude: pictures},
       );
 
-      add(category, response.data.files);
-      setLoading(false);
+      dispatch(setPicture(response.data.files, category));
     } catch (e) {
       console.error(e);
-      setLoading(true);
     }
   };
 
   useEffect(() => {
-    if (!data[category]) {
+    if (pictures.length <= 0) {
       fetchWaifu();
     }
   }, []);
@@ -45,13 +43,9 @@ const WaifuList = ({navigation, category}) => {
     );
   };
 
-  console.log('AZAZAZA', data);
-
-  return loading ? (
-    <ActivityIndicator size={'large'} />
-  ) : (
+  return (
     <FlatList
-      data={data[category]}
+      data={pictures}
       renderItem={renderItem}
       horizontal={false}
       numColumns={2}
