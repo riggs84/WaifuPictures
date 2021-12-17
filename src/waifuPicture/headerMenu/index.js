@@ -1,12 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import OptionsMenu from 'react-native-option-menu';
 import ManageWallpaper, {TYPE} from 'react-native-manage-wallpaper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const HeaderMenu = ({uri}) => {
+const HeaderMenu = ({uri, navigation}) => {
+  const [isDone, setIsDone] = useState(false);
   const setNewWallpaper = type => () => {
-    ManageWallpaper.setWallpaper({uri}, () => {}, type);
+    ManageWallpaper.setWallpaper(
+      {uri},
+      () => {
+        setIsDone(true);
+      },
+      type,
+    );
   };
+
+  useEffect(() => {
+    if (isDone) {
+      navigation.setOptions({
+        headerTitle: 'Wallpaper updated!',
+        headerRight: () => null,
+      });
+    }
+  }, [isDone, navigation]);
 
   return (
     <OptionsMenu
