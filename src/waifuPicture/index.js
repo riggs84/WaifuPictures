@@ -7,7 +7,7 @@ const WaifuPicture = ({route, navigation}) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <HeaderMenu uri={uri} />,
+      headerRight: () => <HeaderMenu uri={uri} navigation={navigation} />,
     });
   }, [navigation, uri]);
 
