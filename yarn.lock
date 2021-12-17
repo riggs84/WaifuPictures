@@ -5476,6 +5476,11 @@ react-native-elements@^3.4.2:
     react-native-ratings "8.0.4"
     react-native-size-matters "^0.3.1"
 
+react-native-fast-image@^8.5.11:
+  version "8.5.11"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
+  integrity sha512-cNW4bIJg3nvKaheG8vGMfqCt5LMWX9MS5+wMudgKIHbGO51spRr4sgnlhVgwHLcZ5aeNOVJ8CPRxDIWKRq/0QA==
+
 react-native-manage-wallpaper@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/react-native-manage-wallpaper/-/react-native-manage-wallpaper-1.1.2.tgz#dd9001dbf62e2c16738e8050bb337dcb32bdea36"
@@ -5606,11 +5611,6 @@ react-test-renderer@17.0.2:
     react-is "^17.0.2"
     react-shallow-renderer "^16.13.1"
     scheduler "^0.20.2"
-
-react-thunk@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-thunk/-/react-thunk-1.0.0.tgz#79813d47f31147e81aee841ed5e76a9e3eabc8b1"
-  integrity sha1-eYE9R/MRR+ga7oQe1edqnj6ryLE=
 
 react@17.0.2:
   version "17.0.2"

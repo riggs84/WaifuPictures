@@ -1,6 +1,7 @@
 import React, {useLayoutEffect} from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import HeaderMenu from './headerMenu';
+import FastImage from 'react-native-fast-image';
 
 const WaifuPicture = ({route, navigation}) => {
   const {uri} = route.params;
@@ -12,10 +13,10 @@ const WaifuPicture = ({route, navigation}) => {
   }, [navigation, uri]);
 
   return (
-    <Image
+    <FastImage
       source={{uri}}
       style={styles.backgroundImage}
-      resizeMode={'contain'}
+      resizeMode={FastImage.resizeMode.contain}
     />
   );
 };
