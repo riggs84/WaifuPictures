@@ -57,7 +57,7 @@ const WaifuList = ({category}) => {
             margin: 10,
           }}
           transition={true}
-          PlaceholderContent={<ActivityIndicator />}
+          PlaceholderContent={<ActivityIndicator size={'large'} />}
         />
       </Pressable>
     );
