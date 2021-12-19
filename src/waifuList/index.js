@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, ActivityIndicator} from 'react-native';
+import {FlatList, ActivityIndicator} from 'react-native';
 import axios from 'axios';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {useSelector, useDispatch} from 'react-redux';
