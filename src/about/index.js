@@ -1,25 +1,27 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
 const About = () => {
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.container}>
-        <Text style={styles.text}>
-          You can view, discover and set liked pictures as wallpaper by using
-          this application.
-        </Text>
+    <ScrollView>
+      <View style={styles.mainContainer}>
+        <View style={styles.container}>
+          <Text style={styles.text}>
+            You can view, discover and set liked pictures as wallpaper by using
+            this application.
+          </Text>
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.text}>
+            Please, be aware, that application uses open-source API for
+            pictures. I do not responsible for it's content.
+          </Text>
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.text}>Developed by: Viktor Iurkov</Text>
+        </View>
       </View>
-      <View style={styles.container}>
-        <Text style={styles.text}>
-          Please, be aware, that application uses open-source API for pictures.
-          I do not responsible for it's content.
-        </Text>
-      </View>
-      <View style={styles.container}>
-        <Text style={styles.text}>Developed by: Viktor Iurkov</Text>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   container: {
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     width: 300,
